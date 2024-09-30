@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'accueil</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgba(209, 226, 237, 0.2);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .global {
+            background-color: rgba(209, 226, 237, 0.5);
+            width: 85%;
+            height: 100vh;
+            margin-top: 15px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .bloc_titre {
+            background: white;
+            border-radius: 15px 15px 0px 0px;
+            width: 100%;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            position: relative;
+        }
+
+        .header {
+            font-size: 24px;
+            padding-left: 20px;
+        }
+
+        .content {
+            flex: 1;
+            background-color: white;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            overflow-y: auto;
+            font-size: 18px;
+            line-height: 1.4;
+        }
+
+        .content h1 {
+            font-size: 32px;
+            text-align: center;
+        }
+
+        .content h2 {
+            font-size: 40px;
+            text-align: center;
+        }
+
+        .content p {
+            font-size: 25px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .category {
+            text-align: center;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            margin: 10px;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+        }
+
+        .category img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .info-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: yellow;
+            border-radius: 50%;
+            width: 30px;
+            height: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+        }
+
+        .info-icon:hover {
+            background-color: #e0e0e0;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            font-size: 20px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .footer {
+            background: linear-gradient(to bottom, white, transparent);
+            display: flex;
+            height: 25px;
+            margin-bottom: 10px;
+        }
+
+        .footer div {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 2px solid black;
+        }
+
+        .footer div:last-child {
+            border-right: none;
+        }
+    </style>
+</head>
+<body>
+<div class="global">
+
+    <!-- Barre horizontale principale -->
+    <div class="bloc_titre">
+        <div class="header">
+            <p>Centre Pôle-Nord 2024 - 2025 </p>
+        </div>
+    </div>
+
+    <!-- Zone de contenu principale -->
+    <div class="content">
+        <h1>Propositions d'activités informatique modulables</h1>
+        <div class="container">
+            <div class="category">
+                <a href="../oneshote_pages/oneshote.html">
+                    <img src="../img/oneshot.png" alt="Oneshot Vignette">
+                </a>
+                <span class="info-icon">?</span>
+                <div class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Oneshot</h2>
+                        <p>
+                            Catégorie 1 : sur 1, 2 ou 3 heures <br/><br/>
+                            Cette activité est conçue pour offrir des sessions courtes et dynamiques d'une durée de 1 à 3 heures, sur des thèmes variés comme l'utilisation de la souris, du clavier, le traitement de texte, la retouche d'images, et bien d'autres. <br/>
+                            L'avantage principal de cette catégorie est la flexibilité : les sessions peuvent se dérouler à tout moment, sans besoin de préparation préalable, car les exercices et les supports pédagogiques sont déjà prêts. <br/>
+                            C'est idéal pour des apprentissages rapides et spontanés.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <a href="../ateliers_pages/ateliers.html">
+                    <img src="../img/ateliers.png" alt="Ateliers Vignette">
+                </a>
+                <span class="info-icon">?</span>
+                <div class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Ateliers</h2>
+                        <p>
+                            Catégorie 2 : Plusieurs séances disponibles <br/><br/>
+                            Dans le cadre d'un projet éducatif plus large, il est possible d'incorporer l'informatique pour enrichir l'expérience d'apprentissage. <br/>
+                            Par exemple, si le thème du projet est "l’espace", nous pourrions travailler avec des outils numériques pour retoucher des images de l’espace ou créer des présentations en lien avec le sujet. Ces ateliers permettent d'allier informatique et pédagogie de manière créative, en s'adaptant aux besoins du projet.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <a href="../projets_pages/projets.html">
+                    <img src="../img/projets.png" alt="Projets Vignette">
+                </a>
+                <span class="info-icon">?</span>
+                <div class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Projets</h2>
+                        <p>
+                            Catégorie 3 : Une semaine complète <br/><br/>
+                            Cette catégorie concerne des projets informatiques plus complexes nécessitant une préparation en amont. <br/>
+                            Ces projets peuvent s’étaler sur une semaine complète, à raison de 2 heures par jour, matin et après-midi. <br/>
+                            Ils sont particulièrement adaptés aux stages JAB ou aux activités en plaine, où l’on peut approfondir des sujets précis, tout en permettant une progression régulière et structurée.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div>Animateur : Rachid</div>
+        <div>Lieu : Pole-Nord</div>
+        <div>2024 - 2025</div>
+    </div>
+
+</div>
+
+    <script>
+        // Ajouter un événement de clic sur chaque icône d'information
+        document.querySelectorAll('.info-icon').forEach(icon => {
+            icon.addEventListener('click', (event) => {
+                // Trouver la modale associée à l'icône
+                const modal = icon.nextElementSibling;
+                // Afficher la modale
+                modal.style.display = 'flex'; // Utiliser flex pour centrer
+                // Empêcher le clic sur l'icône d'interférer avec le clic sur la modale
+                event.stopPropagation();
+            });
+        });
+
+        // Fermer la modale lorsque l'utilisateur clique sur la croix
+        document.querySelectorAll('.close').forEach(closeBtn => {
+            closeBtn.addEventListener('click', (event) => {
+                const modal = closeBtn.closest('.modal');
+                modal.style.display = 'none'; // Cacher la modale
+                event.stopPropagation();
+            });
+        });
+
+        // Fermer la modale si l'utilisateur clique ailleurs
+        window.addEventListener('click', () => {
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.style.display = 'none'; // Cacher la modale
+            });
+        });
+    </script>
+</body>
+</html>

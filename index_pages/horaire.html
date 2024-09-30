@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+<link rel="icon" href="../img/hand.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rachid Pole-Nord 2024</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgba(209, 226, 237, 0.2);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Hauteur maximale de la fenêtre */
+        }
+
+        .global {
+            background-color: rgba(209, 226, 237, 0.5);
+            width: 85%;
+            height: 100vh; /* Pour que la zone prenne toute la hauteur visible */
+            margin-top: 15px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .bloc_titre {
+            background: white;
+            border-radius: 15px 15px 0px 0px;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            position: relative;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .header {
+            font-size: 24px;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .navbar {
+            display: flex;
+            gap: 10px;
+        }
+
+        .navbar button {
+            background-color: #cccccc; /* Couleur par défaut des boutons */
+            color: #000000; /* Couleur du texte */
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s; /* Transition pour un effet visuel */
+        }
+
+        .active {
+            color: white; /* Couleur du texte du bouton actif */
+        }
+
+        .content {
+            flex: 1; /* Pour que cette zone occupe tout l'espace restant */
+            background-color: white;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            overflow: hidden; /* Ajouter une barre de défilement si le contenu dépasse la hauteur disponible */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%; /* Largeur du conteneur */
+            height: 80vh; /* Hauteur du conteneur, 80% de la hauteur de la fenêtre */
+            overflow: hidden; /* Empêche les images de déborder du conteneur */
+        }
+
+        .overlay-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; /* Largeur maximale de l'image */
+            height: 100%; /* Hauteur maximale de l'image */
+            object-fit: contain; /* Garde les proportions de l'image sans la couper */
+            display: none; /* Masque les images sauf la première par défaut */
+        }
+
+        /* Image 0 est en arrière-plan et toujours visible */
+        #image0 {
+            display: block; /* Toujours visible */
+            z-index: 0;
+        }
+
+        /* Les autres images sont initialement masquées */
+        #image1, #image2, #image3, #image4 {
+            z-index: 1; /* Elles apparaissent au-dessus de l'image 0 */
+        }
+
+        .footer {
+            background: linear-gradient(to bottom, white, transparent);
+            display: flex;
+            height: 25px;
+            margin-bottom: 10px;
+        }
+
+        .footer div {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 2px solid black;
+        }
+
+        .footer div:last-child {
+            border-right: none;
+        }
+    </style>
+</head>
+<body>
+<div class="global">
+
+    <!-- Barre horizontale principale -->
+    <div class="bloc_titre">
+        <div class="header">
+            <p>Aperçu des différentes dates de disponibilité</p>
+        </div>
+        <div class="navbar">
+            <button onclick="resetImages()">RESET</button>
+            <button onclick="showImage(1)">BLOCUS</button>
+            <button onclick="showImage(2)">MDE - JAB</button>
+            <button onclick="showImage(3)">HORS BLOCUS</button>
+            <button onclick="showImage(4)">COMBINER</button>
+        </div>
+    </div>
+
+    <!-- Zone de contenu principale -->
+    <div class="content">
+        <div class="image-container">
+            <img src="../img/a_base.png" class="overlay-image" id="image0"> <!-- Toujours en arrière-plan -->
+            <img src="../img/b_blocus.png" class="overlay-image" id="image1">
+            <img src="../img/c_mde.png" class="overlay-image" id="image2">
+            <img src="../img/d_agents.png" class="overlay-image" id="image3">
+            <img src="../img/e_melange.png" class="overlay-image" id="image4">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div>Animateur : Rachid</div>
+        <div>Lieu : Pole-Nord</div>
+        <div>2024 - 2025</div>
+    </div>
+
+</div>
+
+<script>
+    const images = ['image0', 'image1', 'image2', 'image3', 'image4'];
+
+    function resetImages() {
+        images.forEach((imageId) => {
+            const image = document.getElementById(imageId);
+            image.style.display = (imageId === 'image0') ? 'block' : 'none';
+        });
+
+        const buttons = document.querySelectorAll('.navbar button');
+        buttons.forEach(button => {
+            button.classList.remove('active');
+            button.style.backgroundColor = '#cccccc';
+        });
+    }
+
+    function showImage(index) {
+        images.forEach((imageId, i) => {
+            const image = document.getElementById(imageId);
+            image.style.display = (i === 0) ? 'block' : 'none';
+        });
+
+        const selectedImage = document.getElementById(images[index]);
+        selectedImage.style.display = 'block';
+
+        const buttons = document.querySelectorAll('.navbar button');
+        buttons.forEach((button, i) => {
+            button.classList.remove('active');
+            button.style.backgroundColor = '#cccccc';
+        });
+
+        buttons[index].classList.add('active');
+        if (index === 1) {
+            buttons[index].style.backgroundColor = '#f9cbad';
+        } else if (index === 2) {
+            buttons[index].style.backgroundColor = '#b4c6e7';
+        } else if (index === 3) {
+            buttons[index].style.backgroundColor = '#c6e0b4';
+        } else if (index === 4) {
+            buttons[index].style.backgroundColor = '#778899';
+        }
+    }
+
+    resetImages();
+</script>
+</body>
+</html>

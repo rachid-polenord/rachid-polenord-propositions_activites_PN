@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+<link rel="icon" href="../img/hand.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rachid Pole-Nord 2024</title>
+<style>
+    body {
+        margin: 0;
+        display: flex;
+        height: 100vh;
+        background-color: PaleTurquoise  ;
+    }
+    nav {
+        width: 200px; /* Largeur du menu */
+    background-color: #333 ;
+        display: flex;
+        flex-direction: column;
+        padding: 10px 0;
+        align-items: flex-start; /* Alignement à gauche */
+        padding-left: 25px;
+    }
+    nav button {
+        width: 100%; /* Prend toute la largeur du menu */
+        margin: 10px 0;
+        padding: 10px;
+        font-size: 16px;
+        color: white;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        text-align: left; /* Pour aligner le texte à gauche */
+    }
+    nav button:hover {
+        background-color: #555; /* Change la couleur sur toute la largeur */
+        border-radius: 10px;
+    }
+    nav button.active {
+    background-color: rgba(209, 226, 237, 0.5) ;
+        border-radius: 10px 0px 0px 10px;
+    }
+    iframe {
+        flex-grow: 1; /* Prend tout l'espace restant */
+        border: none;
+    }
+</style>
+</head>
+<body>
+
+    <nav>
+        <button id="btnPage1" class="active">SOURIS</button>
+        <button id="btnPage2">CLAVIER</button>
+        <button id="btnPage3">WORD</button>
+        <button id="btnPage4">RETOUCHE</button>
+        <button id="btnPage5">PUBLISHER</button>
+        <button id="btnPage6">POWERPOINT</button>
+    </nav>
+    
+    <iframe id="contentFrame" src="souris.html" title="Contenu"></iframe>
+
+    <script>
+        const contentFrame = document.getElementById('contentFrame');
+        const buttons = document.querySelectorAll('nav button'); // Sélectionne tous les boutons
+
+        // Fonction pour définir le bouton actif
+        function setActiveButton(activeButton) {
+            buttons.forEach(button => {
+                button.classList.remove('active'); // Retire la classe 'active' de tous les boutons
+            });
+            activeButton.classList.add('active'); // Ajoute la classe 'active' uniquement au bouton cliqué
+        }
+
+        // Ajout des événements de clic sur chaque bouton
+        document.getElementById('btnPage1').onclick = function() {
+            contentFrame.src = 'souris.html';
+            setActiveButton(this); // Met à jour le bouton actif
+        };
+
+        document.getElementById('btnPage2').onclick = function() {
+            contentFrame.src = 'clavier.html';
+            setActiveButton(this); // Met à jour le bouton actif
+        };
+
+        document.getElementById('btnPage3').onclick = function() {
+            contentFrame.src = 'word.html';
+            setActiveButton(this); // Met à jour le bouton actif
+        };
+
+        document.getElementById('btnPage4').onclick = function() {
+            contentFrame.src = 'retouche.html';
+            setActiveButton(this); // Met à jour le bouton actif
+        };
+
+        document.getElementById('btnPage5').onclick = function() {
+            contentFrame.src = 'construction.html';
+            setActiveButton(this); // Met à jour le bouton actif
+        };
+
+        document.getElementById('btnPage6').onclick = function() {
+            contentFrame.src = 'construction.html';
+            setActiveButton(this); // Met à jour le bouton actif
+        };
+    </script>
+
+</body>
+</html>
