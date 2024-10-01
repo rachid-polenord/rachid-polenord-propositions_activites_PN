@@ -54,8 +54,7 @@
         <button id="btnPage2">CLAVIER</button>
         <button id="btnPage3">WORD</button>
         <button id="btnPage4">RETOUCHE</button>
-        <button id="btnPage5">PUBLISHER</button>
-        <button id="btnPage6">POWERPOINT</button>
+        <button id="btnPage5">AUTRES</button>
     </nav>
     
     <iframe id="contentFrame" src="souris.html" title="Contenu"></iframe>
@@ -94,7 +93,7 @@
         };
 
         document.getElementById('btnPage5').onclick = function() {
-            contentFrame.src = 'construction.html';
+            contentFrame.src = 'autres.html';
             setActiveButton(this); // Met à jour le bouton actif
         };
 
