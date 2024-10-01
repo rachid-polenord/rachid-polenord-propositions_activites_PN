@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rachid Pole-Nord 2024</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgba(209, 226, 237, 0.2);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden; /* Empêche le défilement */
+        }
+
+        .global {
+            background-color: rgba(209, 226, 237, 0.5);
+            width: 90%;
+            height: 95vh;
+            margin-top: 15px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .bloc_titre {
+            background: white;
+            border-radius: 15px 15px 0px 0px;
+            width: 100%;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            position: relative;
+        }
+h1 {
+color:;
+}
+        .header {
+            font-size: 24px;
+            padding-left: 20px;
+        }
+
+        .content {
+            flex: 1;
+            background-color: white;
+            margin: 20px;
+            padding: 20px;
+padding-top:5px;
+            border-radius: 15px;
+            font-size: 18px;
+            line-height: 1.4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vignettes {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .vignette {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(209, 226, 237, 0.3);
+            padding: 5px;
+	    border:solid 1px lightgrey;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .vignette img {
+            width: 90%;
+            height: 90%;
+            border-radius: 10px;
+            margin-bottom: 5px;
+        }
+
+        .vignette p {
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .footer {
+            background: linear-gradient(to bottom, white, transparent);
+            display: flex;
+            height: 25px;
+            margin-bottom: 10px;
+        }
+
+        .footer div {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 2px solid black;
+        }
+
+        .footer div:last-child {
+            border-right: none;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Caché par défaut */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 60%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .close {
+            position: absolute;
+            top: 30px;
+            right: 290px;
+            font-size: 60px;
+            font-weight: bold;
+	    color:red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="global">
+
+    <!-- Barre horizontale principale -->
+    <div class="bloc_titre">
+        <div class="header">
+            <p>Centre Pôle-Nord 2024 - 2025 </p>
+        </div>
+    </div>
+
+    <!-- Zone de contenu principale -->
+    <div class="content">
+        <h1>Autres activités Informatique</h1>  
+        <div class="vignettes">
+            <div class="vignette" onclick="openModal(1)">
+                <img src="../img/autres1.jpg" alt="Activité 1">
+                <p>IMPRESSION 3D </p>
+            </div>
+            <div class="vignette" onclick="openModal(2)">
+                <img src="../img/autres2.jpg" alt="Activité 2">
+                <p>HTML - CSS</p>
+            </div>
+            <div class="vignette" onclick="openModal(3)">
+                <img src="../img/autres3.jpg" alt="Activité 3">
+                <p>DESSIN et COLORIAGE</p>
+            </div>
+            <div class="vignette" onclick="openModal(4)">
+                <img src="../img/autres4.jpg" alt="Activité 4">
+                <p>STOP MOTION</p>
+            </div>
+            <div class="vignette" onclick="openModal(5)">
+                <img src="../img/autres5.jpg" alt="Activité 5">
+                <p>CARTES DE VOEUX</p>
+            </div>
+            <div class="vignette" onclick="openModal(6)">
+                <img src="../img/autres6.jpg" alt="Activité 6">
+                <p>CODING et PROGRAMMATION</p>
+            </div>
+            <div class="vignette" onclick="openModal(7)">
+                <img src="../img/autres7.jpg" alt="Activité 7">
+                <p>DIAPORAMA DE VACANCES</p>
+            </div>
+            <div class="vignette" onclick="openModal(8)">
+                <img src="../img/autres8.jpg" alt="Activité 8">
+                <p>TRAITEMENT DE TEXTE</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div>Animateur : Rachid</div>
+        <div>Lieu : Pole-Nord</div>
+        <div>2024 - 2025</div>
+    </div>
+
+</div>
+
+<!-- Modale -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modal-img" src="" alt="">
+        <p id="modal-text"></p>
+    </div>
+</div>
+
+<script>
+// Sélectionner toutes les vignettes et la modale
+const vignettes = document.querySelectorAll('.vignette');
+const modal = document.getElementById('modal');
+
+// Ajouter les événements pour chaque vignette
+vignettes.forEach((vignette, index) => {
+    vignette.addEventListener('click', () => {
+        const imgSrc = vignette.querySelector('img').src;
+        const description = vignette.querySelector('p').textContent;
+
+        // Texte explicatif spécifique pour chaque activité
+        const explanations = [
+            "Découvrez les principes de l'impression 3D et créez vos propres objets.",
+            "Apprenez les bases du développement web avec HTML et CSS.",
+            "Exprimez votre créativité à travers le dessin et le coloriage.",
+            "Réalisez un mini film d'animation en stop motion avec des objets du quotidien.",
+            "Créez des cartes de vœux personnalisées pour toutes les occasions.",
+            "Initiez-vous au coding et à la programmation avec des projets amusants.",
+            "Faites un diaporama de vos vacances et partagez vos souvenirs.",
+            "Apprenez à utiliser un traitement de texte pour rédiger vos documents."
+        ];
+
+        // Mettre à jour l'image et le texte de la modale
+        modal.querySelector('#modal-img').src = imgSrc;
+        modal.querySelector('#modal-text').textContent = explanations[index]; // Utilisation de l'explication correspondante
+
+        // Afficher la modale
+        modal.style.display = 'flex';
+    });
+});
+
+// Fermer la modale en cliquant sur la croix
+modal.querySelector('.close').addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+// Fermer la modale en cliquant en dehors du contenu
+window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+</script>
+
+
+</body>
+</html>
