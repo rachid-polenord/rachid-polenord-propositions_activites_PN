@@ -58,6 +58,7 @@
         <button id="btnPage4">ONESHOT</button>
         <button id="btnPage5">ATELIERS</button>
         <button id="btnPage6">PROJETS JAB & PLAINES</button>
+        <button id="btnPage7">CHADIA_JOB</button>
     </nav>
     
     <iframe id="contentFrame" src="index_pages/accueil.html" title="Contenu"></iframe>
@@ -105,6 +106,10 @@
 
         document.getElementById('btnPage6').onclick = function() {
             contentFrame.src = 'projets_pages/projets.html'; // Charge la sixième page
+            setActiveButton(this); // Met à jour le bouton actif
+        };
+        document.getElementById('btnPage7').onclick = function() {
+            contentFrame.src = 'projets_pages/chadia_job.html'; // Charge la sixième page
             setActiveButton(this); // Met à jour le bouton actif
         };
     </script>
